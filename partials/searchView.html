@@ -1,7 +1,7 @@
 <div class="container">
 	<ng-include src="'partials/menuView.html'" ng-controller="menuCtrl"></ng-include>
 <center>
-		<h3 class="text-center">Search</h3>
+		<h3>Search for Land to Lease</h3>
 
 		<div class="row" id="SearchStuff">
 		<div class="col-xs-2">
@@ -10,7 +10,7 @@
 			<form>
 			<div class="input-group">
 					<input ng-model="query" class="form-control" placeholder="Search Here"/>
-						<select title="Choose one of the following..." class="selectpicker form-control" ng-model="area" name="dishType" placeholder="Choose Area" ng-change="search(query,area, type, subtypeWoods,subtypeCrops)">
+						<select title="Choose one of the following..." class="selectpicker form-control" ng-model="area" name="dishType" placeholder="Choose Area" >
 								<option value="" selected disabled>Select Area</option>
 								<option value="all">Sweden</option>
 								<option value="Norrbotten">Norrbotten</option>
@@ -38,21 +38,21 @@
 								<option value="Skåne">Skåne</option>
 						</select>
 
-						<select class="selectpicker form-control" ng-model="type" name="dishType" ng-change="search(query,area, type, subtypeWoods,subtypeCrops)">
+						<select class="selectpicker form-control" ng-model="type" name="dishType" ng-change="subbisar(type)">
 								<option value="" selected disabled>Select Type</option>
 								<option value="all">All Types</option>
 								<option value="Woods">Woods</option>
 								<option value="Crops">Crops</option>
 						</select>
 
-						<select class="selectpicker form-control" ng-model="subtypeCrops" ng-show="crops" ng-change="search(query,area, type, subtypeWoods,subtypeCrops)">
+						<select class="selectpicker form-control" ng-model="subtypeCrops" ng-show="crops" >
 							<option value="" selected disabled>Select Subtype</option>
 							<option value="all">All Subtypes</option>
 								<option value="Wheat">Wheat</option>
 								<option value="Potatoes">Potatoes</option>
 								<option value="Maize">Maize</option>
 						</select>
-						<select class="selectpicker form-control" ng-model="subtypeWoods" ng-show="woods" ng-change="search(query,area, type, subtypeWoods,subtypeCrops)">
+						<select class="selectpicker form-control" ng-model="subtypeWoods" ng-show="woods">
 							<option value="" selected disabled>Select Subtype</option>
 							<option value="all">All Subtypes</option>
 								<option value="Oak">Oak</option>
@@ -97,6 +97,7 @@
     <thead>
       <tr>
         <th>Name</th>
+				<th>Type</th>
         <th>Size</th>
         <th>Price</th>
       </tr>
@@ -104,6 +105,7 @@
     <tbody>
         <tr ng-repeat="match in matches" ng-click="goToCourse(match.id)">
               <td>{{match.name}}</td>
+							<td>{{match.type}}</td>
               <td>{{match.size}}</td>
 							<td>{{match.price}}</td>
         </tr>

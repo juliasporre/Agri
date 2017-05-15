@@ -24,7 +24,7 @@ AgriApp.factory('model', function($resource){
   	this.colorsToRandomFrom = ["#0099ff", "#00ffcc", "#cc99ff", "#ff66cc", "#ffff66", "#66ff66",
   	"#99ccff", "#ffcccc", "#ffb3cc", "#ffb84d", "#33ffcc", "#b3ff1a", "#8cd9b3"];
 
-		this.savedSearch = [{name: "Crop land for leasing", area: "Skåne", img: "corps1.jpg", type:"Crops", subtype: "Wheat", priceMin: "10000", priceMax: "50000", sizeMin: "10", sizeMax: "20"}]
+		this.savedSearch = [];
 	// Initialize Firebase
 	if(firebase.apps.length===0){
 		console.log("init database");
@@ -63,19 +63,19 @@ AgriApp.factory('model', function($resource){
 		for (var i = 0; i < this.savedSearch.length; i++){
 			for (var j = 0; j < this.list.length; j++){
 				if(this.savedSearch[i].area == this.list[j].area){
-					console.log("if(this.savedSearch[i].area == this.list[j].area){");
+
 					if(this.savedSearch[i].type == this.list[j].type){
-						console.log("if(this.savedSearch[i].type == this.list[j].type){");
+
 						if(this.savedSearch[i].subtype == this.list[j].subtype){
-							console.log("if(this.savedSearch[i].subtype == this.list[j].subtype){");
+
 							if(parseInt(this.savedSearch[i].priceMin) <= parseInt(this.list[j].price)){
-								console.log("	if(parseInt(this.savedSearch[i].priceMin) <= parseInt(this.list[j].price)){");
+
 								if(parseInt(this.savedSearch[i].priceMax) >= parseInt(this.list[j].price)){
-									console.log("if(parseInt(this.savedSearch[i].priceMax) >= parseInt(this.list[j].price)){");
+
 									if(parseInt(this.savedSearch[i].sizeMin) <= parseInt(this.list[j].size)){
-										console.log("if(parseInt(this.savedSearch[i].sizeMin) <= parseInt(this.list[j].size)){");
+
 										if(parseInt(this.savedSearch[i].sizeMax) >= parseInt(this.list[j].size)){
-											console.log("	if(parseInt(this.savedSearch[i].sizeMax) >= parseInt(this.list[j].size)){");
+
 											match.push(this.list[j]);
 										}
 									}

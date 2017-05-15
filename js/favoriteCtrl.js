@@ -48,12 +48,14 @@ AgriApp.controller('favoriteCtrl', function($scope, model, $location){
     if(path == 'obj'){
       $scope.obj = true;
       $scope.search = false;
+      $scope.MenuTitle = "Favorites";
 
     }
     if(path == 'search'){
 
       $scope.obj = false;
       $scope.search = true;
+      $scope.MenuTitle = "Watched";
     }
   }
 

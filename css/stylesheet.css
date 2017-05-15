@@ -35,7 +35,8 @@ html body{
 .glyphiconRowBottom{
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: 400px;
+    left: 400px;
 }
 
 #chatBox{
@@ -174,7 +175,7 @@ html body{
     position: absolute;
     top: 0;
     right: 25px;
-    font-size: 32px;
+    font-size: 36px;
     margin-left: 50px;
     color: black;
 }

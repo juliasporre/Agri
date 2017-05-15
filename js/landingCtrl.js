@@ -5,6 +5,10 @@ AgriApp.controller('landingCtrl', function($scope, model, $location){
 	// checks if username is taken and if it is not than it creates a user in the database
 	// if username is taken it writes so to the console
 	// It should probably write to the user via a dedicated <p> tag
+
+	var goto = function(){
+		$location.path('/search');
+	}
 	$scope.newAccount=function(){
 		console.log("newAccount");
 		var userName = document.getElementById("username").value;
@@ -18,7 +22,8 @@ AgriApp.controller('landingCtrl', function($scope, model, $location){
 		            else{
 		            	model.newAccount(userName, passWord);
 		    					model.fetchData(userName);
-									$location.path('/search');
+									goto();
+
 		            }
 		        });
 	}
@@ -37,7 +42,7 @@ AgriApp.controller('landingCtrl', function($scope, model, $location){
 			            if(snapshot.exists() && snapshot.val().password==passWord){
 			            	model.fetchData(userName);
 			                console.log("Model is updatad with your data");
-											$location.path('/search');
+											goto();
 			            }
 			            else{
 			                console.log("Wrong username or password");

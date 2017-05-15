@@ -21,7 +21,18 @@ if(match.length > model.noMatches){
   model.noMatches = match.length;
 }
 
-
+ $scope.subbisar = function(type){
+   if (type == 'Woods'){
+     $scope.woods = true;
+     $scope.crops = false;
+   } else if (type == 'Crops'){
+     $scope.woods = false;
+     $scope.crops = true;
+   } else {
+     $scope.woods = false;
+     $scope.crops = false;
+   }
+ }
 
   $scope.search = function(query,area, type, subtypeWoods,subtypeCrops){
     $scope.hasSearch = false;

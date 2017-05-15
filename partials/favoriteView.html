@@ -3,16 +3,7 @@
 
  <!-- The side menu for the different chats in this course. -->
 
- <table class="table table-hover">
-   <thead>
-   </thead>
-   <tbody>
-       <tr>
-             <td class="text-center" ng-click="goChat('obj')"><span class="glyphicon glyphicon-heart"> Favorites</span></td>
-             <td class="text-center" ng-click="goChat('search')"><span class="glyphicon glyphicon-eye-open"> Watched</span></td>
-       </tr>
-   </tbody>
- </table>
+
 
 <center>
 
@@ -69,5 +60,26 @@
   </div>
 
 
+
+
+</div>
+
+<div> <!-- MENU -->
+<div class="glyphiconRowBottom">
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+      <button class="btn btn-default" ng-disabled="obj" ng-click="goChat('obj')">
+        <span class="glyphicon glyphicon-heart"></span> <!-- Back to start -->
+          Favorites
+      </button>
+    </div>
+    <div class="btn-group" role="group">
+      <button class="btn btn-default" ng-disabled="search" ng-click="goChat('search')">
+        <span class="glyphicon glyphicon-eye-open"></span>  <!-- Go to favorites -->
+          Watched
+      </button>
+    </div>
+</div>
+</div>
 </div>
 </div>

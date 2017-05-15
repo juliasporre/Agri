@@ -12,7 +12,18 @@ AgriApp.controller('profileCtrl', function($scope, model, $routeParams){
 
   //Check if it is your own profile
 
+  $scope.onInfo = true;
+  $scope.onFiles = false;
 
+  $scope.change = function(){
+    if($scope.onInfo){
+      $scope.onInfo = false;
+      $scope.onFiles = true;
+    }else{
+      $scope.onInfo = true;
+      $scope.onFiles = false;
+    }
+  }
 
   var thisIsMe = false;
   if(userName == model.getUserName()){ //Needs to be checked so we know if the user should be able to change content
@@ -38,7 +49,7 @@ AgriApp.controller('profileCtrl', function($scope, model, $routeParams){
     $scope.thisIsMe = thisIsMe;
 
     if(thisIsMe){
-      $scope.MenuTitle = "Your Profile"
+      $scope.MenuTitle = "Profile"
     } else {
       $scope.MenuTitle = userName + "s Profile";
     }

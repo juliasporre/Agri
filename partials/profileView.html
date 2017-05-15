@@ -11,14 +11,61 @@
 
 	<!--Your own profile - all of the input/textareas should have a value that is the last written text. At start this is empty or 0 for the age. You are supposed to be able to continue writing in your text without it disappering.  -->
 	<div ng-show="thisIsMe">
+
+		<div ng-show="onInfo">
+			<div class="center">
+				<h4>Your Information</h4>
+			</div>
+			<hr>
 			<ul class="list-group">
 			  <li class="list-group-item">Username: {{userName}}</li>
 			  <li class="list-group-item">Name: Julia Sporre</li>
 			  <li class="list-group-item">Adress: Rådmansgatan 80A, 11360 Stockholm</li>
 			  <li class="list-group-item">Phone number: 0705868682</li>
 			</ul>
+		</div>
+
+		<div ng-show="onFiles">
+			<div class="center">
+			  <h4>Your Contracts</h4>
+			</div>
+				<hr>
+				<ul class="list-group">
+					<li class="list-group-item">Ab-0126</li>
+					<li class="list-group-item" href="{{url}}privateMessages/kalleanka">Vf-0245</li>
+				</ul>
+			</div>
+		</div>
+
+				<div> <!-- MENU -->
+		  <div class="glyphiconRowBottom">
+		    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+		      <div class="btn-group" role="group">
+		          <button class="btn btn-default" ng-disabled="onInfo" ng-click="change()">
+		            <span class="glyphicon glyphicon-pencil"></span> <!-- Back to start -->
+		              Profile Information
+		          </button>
+		        </div>
+
+		        <!--<div class="btn-group" role="group">
+		          <button type="button" class="btn btn-default">
+		            <span class="glyphicon glyphicon-cloud"></span>  --><!-- See all members -->
+		            <!--Members
+		          </button>
+		        </div>-->
+		        <div class="btn-group" role="group">
+		          <button class="btn btn-default" href="{{url}}favorites" ng-disabled="onFiles" ng-click="change()">
+		            <span class="glyphicon glyphicon-folder-open"></span>  <!-- Go to favorites -->
+		              My Files
+		          </button>
+		        </div>
+		    </div>
+		  </div>
+		</div>
 	</div>
 
+
+<div class="container">
 	<!--Someone elses profile -->
 	<div ng-show="!thisIsMe" >
 		<ul class="list-group">
