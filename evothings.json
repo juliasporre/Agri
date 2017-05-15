@@ -1,0 +1,20 @@
+{
+  "uuid": "f598bdde-37ea-4f29-ab9c-4fc66ac08b9c",
+  "plugins": [],
+  "libraries": [
+    {
+      "name": "mqttws",
+      "version": "3.1"
+    }
+  ],
+  "name": "mqtt-vernemq-emqtt-painter",
+  "title": "AgriLease",
+  "description": "A leasing tool within agriculture",
+  "long-description": "A leasing tool withon agriculture",
+  "version": "0.0.1",
+  "author-name": "Evothings",
+  "author-email": "build@evothings.com",
+  "index-file": "index.html",
+  "author-url": "https://evothings.com",
+  "cordova-id": "com.evothings.samples.mqtt.vernemq.emqtt.painter"
+}

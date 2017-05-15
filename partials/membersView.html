@@ -1,0 +1,92 @@
+<div class="container">
+	<ng-include src="'partials/menuView.html'" ng-controller="menuCtrl"></ng-include>
+
+<form>
+  <br>
+  <div class="form-group">
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter title of your ad" ng-model="title">
+  </div>
+  <br>
+  <div class="input-group">
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Price" ng-model="price">
+    <span class="input-group-addon">SEK/year</span>
+  </div>
+  <br>
+  <div class="input-group">
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Size" ng-model="size">
+    <span class="input-group-addon" >ha</span>
+  </div>
+  <br>
+
+
+  <div class="form-group">
+    <label for="exampleSelect1">Choose Area</label>
+    <select class="selectpicker form-control" id="exampleSelect1" ng-model="area">
+      <option value="Norrbotten">Norrbotten</option>
+      <option value="Västerbotten">Västerbotten</option>
+      <option value="Jämtland">Jämtland</option>
+      <option value="Västernorrland">Västernorrland</option>
+      <option value="Gävleborg">Gävleborg</option>
+      <option value="Dalarna">Dalarna</option>
+      <option value="Värmland">Värmland</option>
+      <option value="Örebro">Örebro</option>
+      <option value="Västmanland">Västmanland</option>
+      <option value="Uppsala">Uppsala</option>
+      <option value="Stockholm">Stockholm</option>
+      <option value="Södermanland">Södermanland</option>
+      <option value="Skaraborg">Skaraborg</option>
+      <option value="Östergötland">Östergötland</option>
+      <option value="Göteborg">Göteborg</option>
+      <option value="Älvsborg">Älvsborg</option>
+      <option value="Jönköping">Jönköping</option>
+      <option value="Kalmar">Kalmar</option>
+      <option value="Gotland">Gotland</option>
+      <option value="Halland">Halland</option>
+      <option value="dessert">Kronoberg</option>
+      <option value="Kronoberg">Blekinge</option>
+      <option value="Skåne">Skåne</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleSelect1">Choose Type</label>
+    <select class="selectpicker form-control" id="exampleSelect1" ng-model="type" ng-change="getSubType(type)">
+      <option value="Woods">Woods</option>
+      <option value="Crops">Crops</option>
+    </select>
+  </div>
+
+	<div class="form-group" ng-show="crops">
+		<label for="exampleSelect1">Choose Subtype</label>
+		<select class="selectpicker form-control" id="exampleSelect1" ng-model="subtypeCrops" >
+			<option value="Wheat">Wheat</option>
+			<option value="Potatoes">Potatoes</option>
+			<option value="Maize">Maize</option>
+		</select>
+	</div>
+
+	<div class="form-group" ng-show="woods">
+		<label for="exampleSelect1">Choose Subtype</label>
+		<select class="selectpicker form-control" id="exampleSelect1" ng-model="subtypeWoods" >
+			<option value="Oak">Oak</option>
+			<option value="Fir">Fir</option>
+		</select>
+	</div>
+
+
+  <div class="form-group">
+    <label for="exampleTextarea">Description</label>
+    <textarea class="form-control" id="exampleTextarea" rows="3" ng-model="desc"></textarea>
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputFile">Image</label>
+    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+    <small id="fileHelp" class="form-text text-muted">Choose an image</small>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary" ng-click="addAd(title, price, size, area, type,subtypeWoods, subtypeCrops, desc)">Submit</button>
+</form>
+</div>

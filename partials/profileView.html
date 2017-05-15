@@ -1,0 +1,41 @@
+<div class="container">
+	<ng-include src="'partials/menuView.html'" ng-controller="menuCtrl"></ng-include>
+
+
+
+
+
+
+
+	<!--Depending on if it is your own profile or not, you will see different things here. -->
+
+	<!--Your own profile - all of the input/textareas should have a value that is the last written text. At start this is empty or 0 for the age. You are supposed to be able to continue writing in your text without it disappering.  -->
+	<div ng-show="thisIsMe">
+			<ul class="list-group">
+			  <li class="list-group-item">Username: {{userName}}</li>
+			  <li class="list-group-item">Name: Julia Sporre</li>
+			  <li class="list-group-item">Adress: Rådmansgatan 80A, 11360 Stockholm</li>
+			  <li class="list-group-item">Phone number: 0705868682</li>
+			</ul>
+	</div>
+
+	<!--Someone elses profile -->
+	<div ng-show="!thisIsMe" >
+		<ul class="list-group">
+			<li class="list-group-item">Username: kalleanka</li>
+			<li class="list-group-item">Name: Kalle Anka</li>
+			<li class="list-group-item">Adress: Skogen</li>
+			<li class="list-group-item">Phone number: 07070707</li>
+
+				<li class="list-group-item">
+					<a type="button" class="btn btn-default" href="{{url}}privateMessages/kalleanka">
+				    	<span class="glyphicon glyphicon-envelope"></span>
+				    	Send a Private Message
+				  	</a>
+				</li>
+			</ul>
+	</div>
+
+
+
+</div>

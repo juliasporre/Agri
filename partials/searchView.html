@@ -1,0 +1,132 @@
+<div class="container">
+	<ng-include src="'partials/menuView.html'" ng-controller="menuCtrl"></ng-include>
+<center>
+		<h3 class="text-center">Search</h3>
+
+		<div class="row" id="SearchStuff">
+		<div class="col-xs-2">
+		</div>
+		<div class="col-xs-8">
+			<form>
+			<div class="input-group">
+					<input ng-model="query" class="form-control" placeholder="Search Here"/>
+						<select title="Choose one of the following..." class="selectpicker form-control" ng-model="area" name="dishType" placeholder="Choose Area" ng-change="search(query,area, type, subtypeWoods,subtypeCrops)">
+								<option value="" selected disabled>Select Area</option>
+								<option value="all">Sweden</option>
+								<option value="Norrbotten">Norrbotten</option>
+								<option value="Västerbotten">Västerbotten</option>
+								<option value="Jämtland">Jämtland</option>
+								<option value="Västernorrland">Västernorrland</option>
+								<option value="Gävleborg">Gävleborg</option>
+								<option value="Dalarna">Dalarna</option>
+								<option value="Värmland">Värmland</option>
+								<option value="Örebro">Örebro</option>
+								<option value="Västmanland">Västmanland</option>
+								<option value="Uppsala">Uppsala</option>
+								<option value="Stockholm">Stockholm</option>
+								<option value="Södermanland">Södermanland</option>
+								<option value="Skaraborg">Skaraborg</option>
+								<option value="Östergötland">Östergötland</option>
+								<option value="Göteborg">Göteborg</option>
+								<option value="Älvsborg">Älvsborg</option>
+								<option value="Jönköping">Jönköping</option>
+								<option value="Kalmar">Kalmar</option>
+								<option value="Gotland">Gotland</option>
+								<option value="Halland">Halland</option>
+								<option value="dessert">Kronoberg</option>
+								<option value="Kronoberg">Blekinge</option>
+								<option value="Skåne">Skåne</option>
+						</select>
+
+						<select class="selectpicker form-control" ng-model="type" name="dishType" ng-change="search(query,area, type, subtypeWoods,subtypeCrops)">
+								<option value="" selected disabled>Select Type</option>
+								<option value="all">All Types</option>
+								<option value="Woods">Woods</option>
+								<option value="Crops">Crops</option>
+						</select>
+
+						<select class="selectpicker form-control" ng-model="subtypeCrops" ng-show="crops" ng-change="search(query,area, type, subtypeWoods,subtypeCrops)">
+							<option value="" selected disabled>Select Subtype</option>
+							<option value="all">All Subtypes</option>
+								<option value="Wheat">Wheat</option>
+								<option value="Potatoes">Potatoes</option>
+								<option value="Maize">Maize</option>
+						</select>
+						<select class="selectpicker form-control" ng-model="subtypeWoods" ng-show="woods" ng-change="search(query,area, type, subtypeWoods,subtypeCrops)">
+							<option value="" selected disabled>Select Subtype</option>
+							<option value="all">All Subtypes</option>
+								<option value="Oak">Oak</option>
+								<option value="Fir">Fir</option>
+						</select>
+
+						Advanced Search <input type="checkbox" ng-model="advanced" aria-label="Toggle ngShow" ng-click="goAdva()"><br />
+									<div class="check-element animate-show-hide" ng-show="advanced">
+										<form>
+										Enter Price Limits:
+										<div class="row">
+											<div class="col-xs-3"><input class="form-control" type="number" ng-model="priceMin"></div>
+											<div class="col-xs-1">-</div>
+											<div class="col-xs-3"><input class="form-control" type="number" ng-model="priceMax"></div>SEK/Year<br>
+										</div>
+										Enter Size Limits:
+										<div class="row">
+											<div class="col-xs-3"><input class="form-control" type="number" ng-model="sizeMin"></div>
+											<div class="col-xs-1">-</div>
+											<div class="col-xs-3"><input class="form-control" type="number" name="bday" ng-model="sizeMax"></div>ha<br>
+										</div>
+									</div>
+								</form>
+								</div>
+
+				<br>
+				<button type="submit" class="btn btn-primary" ng-click="search(query,area, type, subtypeWoods,subtypeCrops)">
+					<span class="glyphicon glyphicon-search">Search</span>
+				</button>
+				<button type="submit" class="btn btn-primary" ng-click="search('nearme')">
+					<span class="glyphicon glyphicon-map-marker">Find near me</span>
+				</button>
+			</div>
+
+		</div>
+
+	<center>
+	<hr>
+	{{status}}
+
+	<table class="table table-hover" ng-show="hasSearch">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="match in matches" ng-click="goToCourse(match.id)">
+              <td>{{match.name}}</td>
+              <td>{{match.size}}</td>
+							<td>{{match.price}}</td>
+        </tr>
+    </tbody>
+  </table>
+	<div ng-show="!found">
+	Do you want to watch this search?
+	<button type="submit" class="btn btn-primary" ng-click="saveSearch(query,area, type, subtypeWoods,subtypeCrops, priceMin, priceMax, sizeMin,sizeMax)">
+		<span class="glyphicon glyphicon-eye-open">Watch</span>
+	</button>
+</div>
+
+
+		<div ng-show="!hasSearch">
+			<br><br><br><br><br><br><br>
+		</div>
+
+
+
+
+
+
+
+
+
+</div>

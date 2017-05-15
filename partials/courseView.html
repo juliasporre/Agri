@@ -1,0 +1,43 @@
+<div class="container">
+  <ng-include src="'partials/menuView.html'" ng-controller="menuCtrl"></ng-include>
+<hr>
+
+<img src="img/{{course.img}}" class="img-responsive" alt="Cinque Terre">
+<br>
+<ul class="list-group">
+  <li class="list-group-item">Area: {{course.area}}</li>
+  <li class="list-group-item">Description: {{course.description}}</li>
+  <li class="list-group-item">Size: {{course.size}} ha</li>
+  <li class="list-group-item">Type: {{course.type}}</li>
+  <li class="list-group-item">Price: {{course.price}} SEK/year</li>
+
+  <li class="list-group-item"><a href="{{url}}">Link to Website</a></li>
+</ul>
+
+
+  <div ng-show="!isFavoriteCourse">
+    <button type="button" class="btn btn-default" ng-click="addFavorite()">
+      <span class="glyphicon glyphicon-heart"></span>
+      Add to favorites
+    </button>
+  </div>
+
+  <div ng-show="isFavoriteCourse">
+    <button type="button" class="btn btn-default" ng-click="removeFavorite()">
+      <span class="glyphicon glyphicon-heart-empty"></span>
+      Remove from Favorites
+    </button>
+  </div>
+
+<br>
+  <a type="button" class="btn btn-default" href="{{url}}profile/kalleanka">
+    <span class="glyphicon glyphicon-user"></span>
+    Go to Seller
+  </a>
+
+  <a type="button" class="btn btn-default" href="{{url}}privateMessages/kalleanka">
+      <span class="glyphicon glyphicon-envelope"></span>
+      Send a Private Message
+  </a>
+
+</div>
